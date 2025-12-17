@@ -3,6 +3,9 @@ import type { Metadata } from "next";
 import "./globals.css";
 import localFont from "next/font/local";
 import ThemeProvider from "@/context/Theme";
+import { Toaster } from "@/components/ui/sonner";
+import { auth } from "@/auth";
+import { SessionProvider } from "next-auth/react";
 
 const inter = localFont({
   src: "../public/fonts/InterVF.ttf",
@@ -18,8 +21,7 @@ const spaceGrotesk = localFont({
 
 export const metadata: Metadata = {
   title: "Dev Overflow",
-  description:
-    `Devflow is a community-driven platform for asking and answering programming
+  description: `Devflow is a community-driven platform for asking and answering programming
     questions. Get help, share knowledge, and collaborate with developers from around the world. 
     Explore topics in web development, mobile app development, algorithms, data structures, and more.`,
   icons: {
@@ -27,19 +29,27 @@ export const metadata: Metadata = {
   },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body
-        className={`${inter.className} ${spaceGrotesk.variable} antialiased`}
-      >
-        <ThemeProvider attribute={"class"} defaultTheme="system">
-          {children}
-        </ThemeProvider>
+    <html
+      lang="en"
+      suppressHydrationWarning
+    >
+      <body className={`${inter.className} ${spaceGrotesk.variable} antialiased`}>
+        <SessionProvider session={session}>
+          <ThemeProvider
+            attribute={"class"}
+            defaultTheme="system"
+          >
+            {children}
+          </ThemeProvider>
+        </SessionProvider>
+        <Toaster />
       </body>
     </html>
   );
