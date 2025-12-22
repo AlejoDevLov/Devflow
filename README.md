@@ -25,7 +25,8 @@
 ```bash
 use git clone or download the zip of the project
 cd your-repo-name  
-npm install  
+npm install
+set up the environment variables based on the template.env.local with your credentials to enable OAuth properly
 npm run dev
 Then open http://localhost:3000/ in your browser.  
 ```
