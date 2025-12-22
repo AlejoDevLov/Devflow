@@ -170,7 +170,7 @@
 }
 
 @utility h1-bold {
-  @apply text-[30px] leading-[42px] font-bold tracking-tighter;
+  @apply text-[30px] leading-10.5 font-bold tracking-tighter;
 }
 
 @utility h2-bold {
