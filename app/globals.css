@@ -1,6 +1,7 @@
 @import "tailwindcss";
 
 @plugin "@tailwindcss/typography";
+@plugin "tailwindcss-animate";
 
 @custom-variant dark (&:is(.dark *));
 
@@ -44,6 +45,8 @@
 
   --font-inter: var(--font-inter);
   --font-space-grotesk: var(--font-space-grotesk);
+  --animate-in: animate-in 0.3s ease-out;
+  --animate-out: animate-out 0.3s ease-in;
 }
 
 /*

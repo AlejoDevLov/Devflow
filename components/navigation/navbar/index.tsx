@@ -1,14 +1,15 @@
 import Image from "next/image";
 import Link from "next/link";
 import ThemeToggler from "./ThemeToggler";
+import MobileNavigation from "./MobileNavigation";
 
 const Navbar = () => {
   return (
-    <nav
-      className="flex-between background-light900_dark200 fixed z-50 w-full gap-5 
-        p-6 shadow-light-300 dark:shadow-none sm:px-12"
-    >
-      <Link href={"/"} className="flex items-center gap-1">
+    <nav className="fixed z-50 flex-between w-full gap-5 background-light900_dark200 p-6 shadow-light-300 sm:px-12 dark:shadow-none">
+      <Link
+        href={"/"}
+        className="flex items-center gap-1"
+      >
         <Image
           src="/images/site-logo.svg"
           width={23}
@@ -16,10 +17,7 @@ const Navbar = () => {
           alt="DevFlow Logo"
         />
 
-        <p
-          className="h2-bold font-space-grotesk text-dark-100 dark:text-light-900
-            max-sm:hidden"
-        >
+        <p className="font-space-grotesk h2-bold text-dark-100 max-sm:hidden dark:text-light-900">
           Dev<span className="text-primary-500">Flow</span>
         </p>
       </Link>
@@ -28,6 +26,7 @@ const Navbar = () => {
 
       <div className="flex-between gap-5">
         <ThemeToggler />
+        <MobileNavigation />
       </div>
     </nav>
   );
