@@ -3,8 +3,7 @@ import { ROUTES } from "@/constants/routes";
 
 export default async function Home() {
   return (
-    <>
-      <h1 className="font-inter h1-bold">Welcome to the world of Next js. inter 🚀</h1>
+    <div className="">
       <form
         className="px-10 py-[100p]"
         action={async () => {
@@ -14,6 +13,6 @@ export default async function Home() {
       >
         <button type="submit">Logout</button>
       </form>
-    </>
+    </div>
   );
 }
