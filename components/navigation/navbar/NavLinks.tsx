@@ -19,7 +19,7 @@ const NavLinks = ({ isMobileNav = false }: { isMobileNav: boolean }) => {
           <Link
             href={item.route}
             key={item.label}
-            className={`${isActive ? "text-light-900 primary-gradient" : "text-dark300_light900"} flex items-center justify-start gap-3 rounded-lg bg-transparent p-4 hover:bg-orange-400/40 sm:mb-4`}
+            className={`${isActive ? "text-light-900 primary-gradient" : "text-dark300_light900"} flex items-center justify-start gap-3 rounded-lg bg-transparent p-4 hover:bg-orange-400/40 sm:mb-3`}
           >
             <Image
               src={item.imgURL}

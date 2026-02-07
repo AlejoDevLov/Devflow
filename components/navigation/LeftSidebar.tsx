@@ -1,15 +1,15 @@
-import NavLinks from "./NavLinks";
+import NavLinks from "./navbar/NavLinks";
 import Link from "next/link";
 import { ROUTES } from "@/constants/routes";
 import { Button } from "@/components/ui/button";
 import Image from "next/image";
 import { auth } from "@/auth";
 
-const DesktopNavigation = async () => {
+const LeftSidebar = async () => {
   const session = await auth();
   const isUserLoggedIn = session?.user != undefined;
   return (
-    <div className="custom-scrollbar fixed top-(--h-navbar) left-0 z-40 h-[calc(100vh-var(--h-navbar))] w-26 overflow-y-auto background-light900_dark200 px-6 pt-10 pb-8 [--h-navbar:--spacing(22)] max-sm:hidden lg:w-66.5">
+    <section className="custom-scrollbar fixed top-(--h-navbar) left-0 z-40 h-[calc(100vh-var(--h-navbar))] w-26 overflow-y-auto background-light900_dark200 px-6 pt-10 pb-8 [--h-navbar:--spacing(22)] max-sm:hidden lg:w-66.5">
       <NavLinks isMobileNav={false} />
       <div className={`${isUserLoggedIn ? "hidden" : ""} flex flex-col gap-y-2.5`}>
         <Link href={ROUTES.SIGN_IN}>
@@ -37,8 +37,8 @@ const DesktopNavigation = async () => {
           </Button>
         </Link>
       </div>
-    </div>
+    </section>
   );
 };
 
-export default DesktopNavigation;
+export default LeftSidebar;
